@@ -23,6 +23,7 @@
                 $js_array = json_encode($results_array);
                 echo "var files = ".$js_array.";\n";
             ?>
+            console.dir(files)
         </script>
         <script src="Javascript/Player.js"></script>
         <script src="Javascript/index.js"></script>

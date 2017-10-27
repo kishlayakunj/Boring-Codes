@@ -45,18 +45,25 @@ $(document).ready(function() {
         icon.className = "glyphicon glyphicon-pause"
 
     }
-
+    var para = document.createElement("div")
+    var dic =document.createElement("table")
+    console.dir(dic.childNodes)
+    dic.className = "table";
+    dic.innerHTML += `<tr><th>Song Name</th></tr>`
     files.forEach(function(element) {
-        var para = document.createElement("p")
-        para.onclick = function() {
+        var ticktock  = document.createElement('tr')
+        ticktock.onclick = function() {
             player.audio.pause()
             player.playSong(element)
             heading.innerText = player.currentSong()
             icon.className = "glyphicon glyphicon-pause"
         }
-        para.innerText = element.replace("/MiniProject/Php/music/", "").replace(".mp3", "")
-        container.appendChild(para)
+
+        ticktock.innerHTML =  `<td>${element.replace("/MiniProject/Php/music/", "").replace(".mp3", "")}</td>`;
+        dic.lastChild.appendChild(ticktock)
     }, this);
 
+
+    container.appendChild(dic)
 })
 
